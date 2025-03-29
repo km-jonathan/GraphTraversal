@@ -1,0 +1,17 @@
+# Ignore build output
+bin/
+obj/
+
+# Rider settings
+.idea/
+.idea/workspace.xml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.iml
+
+# Temporary files
+.vs/
+.vscode/
