@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph Traversal", "Graph Traversal.csproj", "{7AAE835C-31F6-4A14-A6EA-24F18807CD88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph Traversal Test", "Graph Traversal Test\Graph Traversal Test.csproj", "{EB2AA903-F657-4B90-9C28-54EF10932BEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{7AAE835C-31F6-4A14-A6EA-24F18807CD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AAE835C-31F6-4A14-A6EA-24F18807CD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AAE835C-31F6-4A14-A6EA-24F18807CD88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2AA903-F657-4B90-9C28-54EF10932BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2AA903-F657-4B90-9C28-54EF10932BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2AA903-F657-4B90-9C28-54EF10932BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2AA903-F657-4B90-9C28-54EF10932BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -146,7 +146,7 @@ public static class GraphHelper
         return maxEccentricity;
     }
 
-    private static int GetPathDistance(Graph graph, List<int> path)
+    public static int GetPathDistance(Graph graph, List<int> path)
     {
         if (path.Count <= 0)
         {

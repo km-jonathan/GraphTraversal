@@ -15,3 +15,5 @@ obj/
 # Temporary files
 .vs/
 .vscode/
+
+**/.DS_Store
