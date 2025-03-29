@@ -1,4 +1,4 @@
-﻿using Graph_Traversal;
+﻿namespace Graph_Traversal;
 
 class Program
 {
@@ -26,7 +26,7 @@ class Program
             else
             {
                 Console.WriteLine("Please enter size (N) for the graph:");
-                string sizeInput = Console.ReadLine();
+                var sizeInput = Console.ReadLine();
                 if (!int.TryParse(sizeInput, out graphSize))
                 {
                     Console.WriteLine("Error: Size (N) must be an integer.");
@@ -34,7 +34,7 @@ class Program
                 }
                 
                 Console.WriteLine("Please enter sparseness (S) for the graph:");
-                string sparsenessInput = Console.ReadLine();
+                var sparsenessInput = Console.ReadLine();
                 if (!int.TryParse(sparsenessInput, out graphSparseness))
                 {
                     Console.WriteLine("Error: Sparseness (S) must be a number.");
@@ -82,4 +82,3 @@ class Program
         }
     }
 }
-
