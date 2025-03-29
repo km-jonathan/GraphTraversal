@@ -5,8 +5,20 @@ public static class GraphHelper
     // Task 3 - Dijkstra's algorithm that traverses the graph and outputs the shortest path between any 2 randomly selected vertices
     public static List<int> GetShortestPath(Graph graph, int start, int end)
     {
+        if (graph == null)
+        {
+            throw new ArgumentNullException(nameof(graph));
+        }
+
+        if (graph.Vertices.Count < 1)
+        {
+            return new List<int>();
+        }
+
         if (!graph.Vertices.ContainsKey(start) || !graph.Vertices.ContainsKey(end))
-            return new List<int>(); // return empty list if no path exists
+        {
+            return new List<int>();
+        }
         
         var distances = new Dictionary<int, int>();
         var previous = new Dictionary<int, int?>();
@@ -80,6 +92,14 @@ public static class GraphHelper
     // Task 4.1 - Eccentricity
     public static int GetEccentricity(Graph graph, int vertex)
     {
+        if (graph == null)
+            throw new ArgumentNullException(nameof(graph));
+
+        if (graph.Vertices.Count < 1)
+        {
+            throw new ArgumentException("Graph must have at least one vertex");
+        }
+        
         if (!graph.Vertices.ContainsKey(vertex))
             throw new ArgumentException($"Vertex {vertex} not found in the graph");
             

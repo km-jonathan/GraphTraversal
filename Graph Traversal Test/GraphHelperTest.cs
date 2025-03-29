@@ -61,8 +61,9 @@ public class GraphHelperTest
         };
     }
     
+    // Test Path
     [TestMethod]
-    public void ReturnShortestPath()
+    public void GetShortestPath_ReturnValidShortestPath()
     {
         var path = GraphHelper.GetShortestPath(_graph, 4, 7);
         
@@ -70,15 +71,23 @@ public class GraphHelperTest
     }
     
     [TestMethod]
-    public void ReturnShortestPathNotFound()
+    public void GetShortestPath_PathNotFound_ReturnEmptyList()
     {
         var path = GraphHelper.GetShortestPath(_graph, 4, 6);
         
         CollectionAssert.AreEqual(new List<int>(), path);
     }
+
+    [TestMethod]
+    public void GetShortestPath_EmptyGraph_ReturnEmptyList()
+    {
+        var graph = new Graph();
+        var path = GraphHelper.GetShortestPath(graph, 1, 2);
+        CollectionAssert.AreEqual(new List<int>(), path);
+    }
     
     [TestMethod]
-    public void ReturnPathDistance()
+    public void GetPathDistance_ReturnValidPathDistance()
     {
         var path = GraphHelper.GetShortestPath(_graph, 4, 7);
         var distance = GraphHelper.GetPathDistance(_graph, path);
@@ -86,8 +95,9 @@ public class GraphHelperTest
         Assert.AreEqual(3, distance);
     }
     
+    // Test Eccentricity
     [TestMethod]
-    public void ReturnEccentricity()
+    public void GetEccentricity_ReturnValidEccentricity()
     {
         var eccentricity_1 = GraphHelper.GetEccentricity(_graph, 1);
         var eccentricity_2 = GraphHelper.GetEccentricity(_graph, 2);
@@ -105,17 +115,37 @@ public class GraphHelperTest
         Assert.AreEqual(17, eccentricity_6);
         Assert.AreEqual(12, eccentricity_7);
     }
-    
+
     [TestMethod]
-    public void ReturnRadius()
+    public void GetEccentricity_NonExistentVertex_ThrowsArgumentException()
+    {
+        Assert.ThrowsException<ArgumentException>(() => GraphHelper.GetEccentricity(_graph, 8));
+    }
+
+    [TestMethod]
+    public void GetEccentricity_EmptyGraph_ThrowsNullException()
+    {
+        Assert.ThrowsException<ArgumentException>(() => GraphHelper.GetEccentricity(new Graph(), 1));
+    }
+
+    [TestMethod]
+    public void GetEccentricity_NullGraph_ThrowsNullException()
+    {
+        Assert.ThrowsException<ArgumentNullException>(() => GraphHelper.GetEccentricity(null, 1));
+    }
+    
+    // Test Radius
+    [TestMethod]
+    public void GetRadius_ReturnValidRadius()
     {
         var radius = GraphHelper.GetRadius(_graph);
         
         Assert.AreEqual(5, radius);
     }
     
+    // Test Diameter
     [TestMethod]
-    public void ReturnDiameter()
+    public void GetDiameter_ReturnValidDiameter()
     {
         var diameter = GraphHelper.GetDiameter(_graph);
         
