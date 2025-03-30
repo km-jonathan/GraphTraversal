@@ -2,6 +2,7 @@ namespace Graph_Traversal;
 
 public class GraphMaster
 {
+    // Task 2 - Randomly generate a simple directed graph
     public Graph ConstructRandomGraph(int vertexCount, int edgeCount)
     {
         ValidateGraphParameters(vertexCount, edgeCount);

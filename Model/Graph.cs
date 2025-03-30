@@ -17,7 +17,7 @@ public class Edge
 // Task 1.2 - Define the extended Graph class
 public class Graph
 {
-    private const int WEIGHTRANGE = 10;
+    private const int WeightRange = 10;
     private static Random _random = new ();
     
     public Dictionary<int, List<Edge>> Vertices = new();
@@ -46,7 +46,42 @@ public class Graph
         Vertices[source].Add(new Edge{ Destination = destination, Weight = weight });
     }
     
+    public int GetRandomVertex(int excludeValue = 0)
+    {
+        var keys = Vertices.Keys.ToList();
+
+        if (excludeValue > 0)
+        {
+            keys = keys.Where(o => o != excludeValue).ToList();
+        }
+        
+        if (keys.Count == 0)
+        {
+            return 0;
+        }
+        
+        return keys[_random.Next(keys.Count)];
+    } 
+    
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("{");
+            
+        foreach (var vertex in Vertices.OrderBy(v => v.Key))
+        {
+            sb.Append($"  {vertex.Key} [");
+            sb.Append(string.Join(", ", vertex.Value.Select(e => e.ToString())));
+            sb.AppendLine("]");
+        }
+            
+        sb.AppendLine("}");
+        return sb.ToString();
+    }
+    
+    
     // Task 2 - Randomly generate a simple directed graph
+    // Deprecated - use RandomGraphBuilder
     public static Graph GenerateRandomGraph(int n, int s)
     {
         if (n <= 0)
@@ -82,7 +117,7 @@ public class Graph
             var target = unconnectedVertices[_random.Next(unconnectedVertices.Count)];
             
             // assumption: weight can be any random number between 1 and 9
-            var weight = _random.Next(1, WEIGHTRANGE); 
+            var weight = _random.Next(1, WeightRange); 
             
             graph.AddEdge(source, target, weight);
             
@@ -113,45 +148,12 @@ public class Graph
             if (source == target || existingEdges.Contains((source, target)))
                 continue;
             
-            var weight = _random.Next(1, WEIGHTRANGE);
+            var weight = _random.Next(1, WeightRange);
             graph.AddEdge(source, target, weight);
             existingEdges.Add((source, target));
             otherEdges--;
         }
         
         return graph;
-    }
-    
-    public int GetRandomVertex(int excludeValue = 0)
-    {
-        var keys = Vertices.Keys.ToList();
-
-        if (excludeValue > 0)
-        {
-            keys = keys.Where(o => o != excludeValue).ToList();
-        }
-        
-        if (keys.Count == 0)
-        {
-            return 0;
-        }
-        
-        return keys[_random.Next(keys.Count)];
-    } 
-    
-    public override string ToString()
-    {
-        var sb = new StringBuilder();
-        sb.AppendLine("{");
-            
-        foreach (var vertex in Vertices.OrderBy(v => v.Key))
-        {
-            sb.Append($"  {vertex.Key} [");
-            sb.Append(string.Join(", ", vertex.Value.Select(e => e.ToString())));
-            sb.AppendLine("]");
-        }
-            
-        sb.AppendLine("}");
-        return sb.ToString();
     }
 }

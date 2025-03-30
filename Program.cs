@@ -55,8 +55,6 @@ class Program
             // TODO: print out the randomly generated graph
             var graphMaster = new GraphMaster();
             var graph = graphMaster.ConstructRandomGraph(graphSize, graphSparseness); // TODO: fix()
-            
-            // var graph = Graph.GenerateRandomGraph(graphSize, graphSparseness);
             Console.WriteLine($"Graph: {graph}");
             
             // TODO: print out the distance properties of the graph (radius, diameter)

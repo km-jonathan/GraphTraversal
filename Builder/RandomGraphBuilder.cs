@@ -13,7 +13,7 @@ public class RandomGraphBuilder : GraphBuilderBase
         
         foreach (var vertex in vertexValues)
         {
-            graph.AddVertex(vertex);
+            Graph.AddVertex(vertex);
         }
         
         var randomStartIndex = Random.Next(vertexValues.Count);
@@ -34,7 +34,7 @@ public class RandomGraphBuilder : GraphBuilderBase
             
             var weight = Random.Next(1, WeightRange);
             
-            graph.AddEdge(source, target, weight);
+            Graph.AddEdge(source, target, weight);
             existingEdges.Add((source, target));
             
             connectedVertices.Add(target);
@@ -62,7 +62,7 @@ public class RandomGraphBuilder : GraphBuilderBase
             }
             
             var weight = Random.Next(1, WeightRange);
-            graph.AddEdge(source, target, weight);
+            Graph.AddEdge(source, target, weight);
             existingEdges.Add((source, target));
             edgesToAdd--;
         }

@@ -2,7 +2,7 @@ namespace Graph_Traversal;
 
 public abstract class GraphBuilderBase : IGraphBuilder
 {
-    public Graph graph = new Graph();
+    public Graph Graph = new Graph();
     public static readonly Random Random = new();
     public const int WeightRange = 10;
     
@@ -12,6 +12,6 @@ public abstract class GraphBuilderBase : IGraphBuilder
     
     public virtual Graph Build()
     {
-        return graph;
+        return Graph;
     }
 }
