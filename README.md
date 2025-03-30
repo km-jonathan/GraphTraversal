@@ -46,6 +46,9 @@ As a result, some code may be outdated or no longer in use.
 
 - A test project is also included for unit testing purposes. Additional unit testing could be created.
 
+## Feedback
+
+Looking forward to any feedback on how to optimise the code
 
 ## Authors
 
